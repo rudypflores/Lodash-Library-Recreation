@@ -59,12 +59,19 @@ const _ = {
     }
     return undefined;
   },
-  //drop
+  //Drop the the values up to the selected index
   drop(arr, dropNum) {
     if(typeof dropNum === 'undefined') {
       dropNum = 1;
     }
     let droppedArr = arr.slice(dropNum, arr.length);
+    return droppedArr;
+  },
+  dropWhile(arr, predicate) {
+    let dropNumber = arr.findIndex(function(element, index) {
+      return !predicate(element, index, arr);
+    });
+    let droppedArr = this.drop(arr, dropNumber);
     return droppedArr;
   }
 };

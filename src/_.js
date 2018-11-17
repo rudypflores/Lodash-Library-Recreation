@@ -58,6 +58,14 @@ const _ = {
       }
     }
     return undefined;
+  },
+  //drop
+  drop(arr, dropNum) {
+    if(typeof dropNum === 'undefined') {
+      dropNum = 1;
+    }
+    let droppedArr = arr.slice(dropNum, arr.length);
+    return droppedArr;
   }
 };
 _.clamp(3, 1, 4);

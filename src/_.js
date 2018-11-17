@@ -19,12 +19,12 @@ const _ = {
     let isInRange = start <= number && number < end;
     return isInRange;
   },
-  
+  //Split any sentence form their spaces
   words(sentence) {
     let words = sentence.split(" ");
     return words;
   },
-  
+  //pads a string from the start and end to desired length
   pad(str, len) {
     if(len <= str.length) {
        return str;
@@ -33,7 +33,14 @@ const _ = {
     let padRight = len-str.length-padLeft;
     let paddedStr = ' '.repeat(padLeft) + str + ' '.repeat(padRight);
     return paddedStr;
-  }
+  },
+  //Checks if a key in an object has a value assigned to it
+  has(object, key) {
+    var hasValue = object.hasOwnProperty(key);
+		return hasValue;
+  },
+  
+  
 };
 _.clamp(3, 1, 4);
 

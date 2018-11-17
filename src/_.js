@@ -39,7 +39,7 @@ const _ = {
     var hasValue = object.hasOwnProperty(key);
 		return hasValue;
   },
-  //Invert key for object
+  //Invert the key for the object
   invert(object) {
     let invertedObject = {};
     for (let key in object) {
@@ -47,6 +47,17 @@ const _ = {
       invertedObject = {originalValue : key};
   	}
     return invertedObject;
+  },
+  //Find a key in a specific index
+  findKey(object, predicate) {
+    for(let key in object) {
+      let value = object[key];
+      let predicateReturnValue = predicate(value);
+      if(!!predicateReturnValue) {
+         return key;
+      }
+    }
+    return undefined;
   }
 };
 _.clamp(3, 1, 4);

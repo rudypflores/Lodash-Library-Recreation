@@ -1,3 +1,10 @@
+/*
+*Lodash Library Recreation
+*@author Rudy Flores
+*November 18th, 2018
+*/
+
+//Main Lodash Object
 const _ = {
   //Clamp our values in the lodash object
   clamp(number, lower, upper) {
@@ -73,9 +80,20 @@ const _ = {
     });
     let droppedArr = this.drop(arr, dropNumber);
     return droppedArr;
+  },
+  //Generates array chunks at a specific size
+  chunk(arr, size) {
+    if(typeof size === 'undefined') {
+       size = 1;
+    }
+    let arrayChunks = [];
+    for(let i = 0; i < arr.length; i+=size) {
+      let arrayChunk = arr.slice(i, i+size);
+      arrayChunks.push(arrayChunk);
+    }
+    return arrayChunks;
   }
 };
-_.clamp(3, 1, 4);
 
-// Do not write or modify code below this line.
+//Export for Node.js
 module.exports = _;
